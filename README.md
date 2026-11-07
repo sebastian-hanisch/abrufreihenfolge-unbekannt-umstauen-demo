@@ -1,7 +1,6 @@
 # Unbekannte Abrufreihenfolge: was ist eine Vorschau wert? – Streamlit-Demo
 
-<!-- TODO nach dem Deploy: direkt hierher den Live-Link setzen (Leerzeile davor und danach):
-**[→ Demo live ausprobieren](https://sebastianhanisch-abrufreihenfolge-unbekannt-umstauen-demo.streamlit.app/)** -->
+**[→ Demo live ausprobieren](https://sebastianhanisch-abrufreihenfolge-unbekannt-umstauen-demo.streamlit.app/)**
 
 Dreizehntes Stück der Konzepte-Reihe **„Umstauen: Untergrenze und Suche“** für die Website „Sebastian Hanisch – Operations Research und Machine Learning“. Bisher war die **Abrufreihenfolge bekannt**. Hier ist sie nur **gruppenweise** bekannt: Die Nummern werden in **Gruppen** aus je *g* aufeinanderfolgenden Abrufen zusammengefasst, innerhalb einer Gruppe ist die Reihenfolge zufällig. Eine **Vorschau** auf die nächsten *k* Abrufe enthüllt deren genaue Nummern. Wie viele Hübe kostet das **Nichtwissen**, wie schnell **sinkt der Wert** jeder weiteren Information, und wann ist es **egal**? Die Demo rechnet das live über eine Stichprobe von Buchten und misst vorberechnet die Kurve **Hübe gegen Vorschau**. Zur Vorhersage von Algorithmen ohne Stapel siehe auch die Demos zu **Vorhersagen** und **Online-Algorithmen** (nur als Verweis, nicht nachgebaut).
 
