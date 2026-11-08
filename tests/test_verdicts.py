@@ -60,7 +60,7 @@ def test_tie_verdict_three_states_and_numbers():
 
 def test_expect_verdict_two_states_and_numbers():
     kind, text = ev.verdict_expect(_stats(lb1=7.67, eb=7.62), 6, "4 × 4, g = 6")
-    assert kind == "success" and text == ("4 × 4, g = 6: Erwartete Blocker bei Gruppengröße 6: 7,62, gezählt an den wahren Nummern: 7,67 (Abweichung 0,7 %). Die erwartete Zahl trifft die Zählung.")
+    assert kind == "success" and text == ("4 × 4, g = 6: Erwartete Blocker bei Gruppengröße 6: 7,62, gezählt an den wahren Nummern: 7,67 (Abweichung 0,7 %). Im Mittel über die Stichprobe trifft die erwartete Zahl die Zählung.")
     assert ev.verdict_expect(_stats(lb1=10.0, eb=10.2), 6, "x")[0] == "success" and C.EXPECT_TOL == 0.02 and ev.verdict_expect(_stats(lb1=10.0, eb=10.21), 6, "x")[0] == "info"
     kind, text = ev.verdict_expect(_stats(lb1=10.0, eb=9.0), 3, "x")
     assert kind == "info" and text.endswith("Die Stichprobe weicht vom Erwartungswert ab.") and "(Abweichung 10 %)" in text

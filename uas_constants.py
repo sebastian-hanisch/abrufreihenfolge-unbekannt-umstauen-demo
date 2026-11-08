@@ -54,6 +54,6 @@ PRESET_HELP = {
     "Zwei Abrufe voraus (4 Stapel, 4 Lagen, g = 6)": "Dieselben Buchten, aber die nächsten zwei Abrufe sind vorab bekannt: fast zwei Drittel der Lücke sind zu.",
     "Nur Gruppen (4 Stapel, 4 Lagen, g = 6)": "16 Container, Gruppen aus 6 Nummern, keine Vorschau: die Regel braucht rund 14 % mehr Hübe als bei voller Information.",
     "Volle Information (g = 1)": "Jede Nummer ist eine Gruppe: die Regel kennt alles, die Lücke ist null (Vergleichsmaß der anderen Presets).",
-    "Viele Stapel: egal (8 Stapel, 3 Lagen, g = 6)": "24 Container: bei vielen Stapeln findet fast jeder Blocker einen sicheren Stapel, das Nichtwissen kostet nur rund 4 %.",
+    "Viele Stapel: egal (8 Stapel, 3 Lagen, g = 6)": "24 Container: bei vielen Stapeln findet die große Mehrheit der Blocker einen sicheren Stapel, das Nichtwissen kostet nur rund 4 %.",
     "Kleine Gruppen (4 Stapel, 4 Lagen, g = 2)": "Gruppen aus 2 Nummern: das Nichtwissen kostet nur rund 2 % mehr Hübe.",
 }

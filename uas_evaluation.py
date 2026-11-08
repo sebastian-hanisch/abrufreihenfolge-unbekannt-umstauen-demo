@@ -200,7 +200,7 @@ def verdict_expect(stats: dict, group: int, name: str) -> tuple[str, str]:
     rel = abs(eb - lb1) / lb1
     text = f"{name}: Erwartete Blocker bei Gruppengröße {group}: {dec(eb)}, gezählt an den wahren Nummern: {dec(lb1)} (Abweichung {percent_text(rel)})."
     if _le(rel, C.EXPECT_TOL):
-        return "success", text + " Die erwartete Zahl trifft die Zählung."
+        return "success", text + " Im Mittel über die Stichprobe trifft die erwartete Zahl die Zählung."
     return "info", text + " Die Stichprobe weicht vom Erwartungswert ab."
 
 

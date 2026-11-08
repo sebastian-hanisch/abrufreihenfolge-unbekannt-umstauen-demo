@@ -25,13 +25,14 @@ def test_the_hubs_fall_with_the_lookahead_and_end_at_full_information():
         assert c["hubs"][-1] == pytest.approx(c["full"]) and c["hubs"][0] >= c["full"] - 1e-9
 
 
-def test_the_cost_of_not_knowing_grows_with_the_group_size_and_shrinks_with_more_stacks():
+def test_the_cost_of_not_knowing_grows_with_the_group_size_and_shrinks_with_more_stacks_at_equal_layers():
     kurve = _b()["kurve"]
     for s, l in C.CURVE_CELLS:
         h0 = [kurve[ev.curve_key(s, l, g)]["hubs"][0] for g in C.CURVE_GROUPS]
         assert h0 == sorted(h0), (s, l, h0)
     rel = lambda s, l: kurve[ev.curve_key(s, l, 6)]["hubs"][0] / kurve[ev.curve_key(s, l, 6)]["full"] - 1
-    assert rel(4, 4) > rel(5, 4) > rel(8, 3) and round(rel(4, 4), 2) == 0.16 and round(rel(8, 3), 2) == 0.04
+    assert rel(4, 4) > rel(5, 4) and rel(4, 3) > rel(8, 3) and round(rel(4, 4), 2) == 0.16 and round(rel(8, 3), 2) == 0.04      # gleiche Lagenzahl: 4 × 4 gegen 5 × 4, 4 × 3 gegen 8 × 3
+    assert round(rel(4, 3), 3) == 0.146 and round(rel(5, 4), 3) == 0.134
 
 
 def test_the_numbers_the_readme_quotes_for_the_curve():

@@ -6,7 +6,7 @@ Dreizehntes Stück der Konzepte-Reihe **„Umstauen: Untergrenze und Suche“** 
 
 ## Warum dieses Problem
 
-In der Praxis kennt man die Abholreihenfolge selten genau: Man weiß, dass ein Container „diese Woche“ oder „im nächsten Zug“ abgeholt wird, nicht in welcher Minute. Die Frage, was **frühe Information** wert ist, lässt sich hier genau messen. Ergebnis: Das Nichtwissen kostet Hübe, aber **wenige und nur kurz**. Bei 4 × 4 Containern und Gruppen aus 6 Nummern braucht die Regel mit reiner Gruppenkenntnis im Mittel 13,11 statt 11,31 Hübe (+16 %); mit der Vorschau auf **zwei** Abrufe 11,89 (68 % der Lücke sind zu), ab **vier** sind es 90 %. Der Grenznutzen sinkt schnell. Bei **vielen Stapeln** ist das Nichtwissen fast egal (8 × 3, Gruppen aus 6: +4 %), wie in Stück 10: Fast jeder Blocker findet einen sicheren Stapel. Und bei **Gleichstand** der Schlüssel ist **Vorsicht** viel besser als Vertrauen (12,27 gegen 14,06 Hübe).
+In der Praxis kennt man die Abholreihenfolge selten genau: Man weiß, dass ein Container „diese Woche“ oder „im nächsten Zug“ abgeholt wird, nicht in welcher Minute. Die Frage, was **frühe Information** wert ist, lässt sich hier genau messen. Ergebnis: Das Nichtwissen kostet in den kleinen Zellen (4 × 3, 4 × 4) **wenige Hübe** und braucht nur eine **kurze Vorschau**. Bei 4 × 4 Containern und Gruppen aus 6 Nummern braucht die Regel mit reiner Gruppenkenntnis im Mittel 13,11 statt 11,31 Hübe (+16 %); mit der Vorschau auf **zwei** Abrufe 11,89, das sind etwa zwei Drittel der Lücke weniger (68 % in diesen 200 Buchten, Streuung etwa ±8 Prozentpunkte), ab **vier** sind es über 90 %. Dort sinkt der Grenznutzen schnell. Bei **vielen Stapeln** ist das Nichtwissen fast egal (8 × 3, Gruppen aus 6: +4 %), wie in Stück 10: Die große Mehrheit der Blocker findet einen sicheren Stapel (in 8 × 3 rund 88 %). Und bei **Gleichstand** der Schlüssel ist **Vorsicht** viel besser als Vertrauen (12,27 gegen 14,06 Hübe).
 
 ## Modell
 
@@ -51,7 +51,7 @@ Alle Zahlen sind Messungen an festen Buchten, nachgerechnet in `tests/test_claim
 | 8 × 3, *g* = 4 | 10,55 | 10,78 | 10,78 | 10,78 | 10,78 | 10,77 | 10,72 | 10,66 | 10,55 |
 | 8 × 3, *g* = 6 | 10,55 | 10,98 | 10,98 | 10,98 | 10,97 | 10,95 | 10,80 | 10,74 | 10,55 |
 
-Die Hubzahl fällt mit *k* nicht (im Mittel) und erreicht bei *k* = „alle“ die volle Information. Die **Lücke** (*k* = 0 minus volle Information) wächst mit der Gruppengröße: 4 × 4: 0,31 (*g* = 2), 0,73 (3), 0,97 (4), 1,80 (6) Hübe, das sind 2,7 %, 6,5 %, 8,5 % und 16 %. Bei **vielen Stapeln** schrumpft sie: 8 × 3, *g* = 6: 0,43 Hübe (4,1 %), bei *g* = 2 und 3 unter 0,1 (die Reihenfolge ist dort praktisch egal). **Wie schnell sie zugeht:** In 4 × 3 und 4 × 4 sind 90 % der Lücke ab *k* = 3 bis 4 geschlossen, und ab *k* = max(*g*, 4) ist sie bis auf 0,08 Hübe zu (4 × 3, *g* = 6: ab *k* = 6 gleich der vollen Information). Bei **5 × 4** braucht es länger (90 % ab *k* = 6 bis 8; bei *k* = *g* = 6 fehlen noch 0,12 Hübe), bei **8 × 3** (*g* = 6) trägt die Vorschau erst bei sehr großem *k* (50 % der Lücke ab *k* = 8). Mit *k* = 2 sind in 4 × 4 zwischen 54 % (*g* = 3) und 68 % (*g* = 6) der Lücke geschlossen, in 5 × 4 zwischen 27 % und 50 %.
+Die mittlere Hubzahl steigt mit *k* nicht (einzelne Buchten schon) und erreicht bei *k* = „alle“ die volle Information. Die **Lücke** (*k* = 0 minus volle Information) wächst mit der Gruppengröße: 4 × 4: 0,31 (*g* = 2), 0,73 (3), 0,97 (4), 1,80 (6) Hübe, das sind 2,7 %, 6,5 %, 8,5 % und 16 %. Bei gleicher Lagenzahl schrumpft die relative Lücke mit der **Stapelzahl** (4 × 3 → 8 × 3, *g* = 6: 14,6 % → 4,1 %; 4 × 4 → 5 × 4: 15,9 % → 13,4 %); in 8 × 3 mit *g* = 6 sind es 0,43 Hübe, bei *g* = 2 und 3 unter 0,1 (die Reihenfolge ist dort praktisch egal). **Wie schnell sie zugeht:** In 4 × 3 und 4 × 4 sind 90 % der Lücke ab *k* = 3 bis 4 geschlossen, und ab *k* = max(*g*, 4) ist sie bis auf 0,08 Hübe zu (4 × 3, *g* = 6: ab *k* = 6 gleich der vollen Information). Bei **5 × 4** braucht es länger (90 % ab *k* = 6 bis 8; bei *k* = *g* = 6 fehlen noch 0,12 Hübe), bei **8 × 3** (*g* = 6) trägt die Vorschau erst bei sehr großem *k* (50 % der Lücke ab *k* = 8). Mit *k* = 2 sind in 4 × 4 zwischen 54 % (*g* = 3) und 68 % (*g* = 6) der Lücke geschlossen, in 5 × 4 zwischen 27 % und 50 %. Diese Anteile sind bei 200 Buchten unscharf (in 4 × 4 Streuung etwa ±8 Prozentpunkte), die Rangfolge der Gruppengrößen ist nicht gesichert.
 
 **B: Gleichstand** (Hübe der Regel, Mittel über 200 Buchten; „unsicher“ = bei gleichen Schlüsseln gilt der Stapel nicht als sicher)
 
@@ -85,7 +85,7 @@ Bei Gleichstand ist **Vorsicht** in allen acht Zeilen besser; der Unterschied is
 | 8 × 3, *g* = 4 | 9,22 | 9,26 | 9,95 |
 | 8 × 3, *g* = 6 | 9,28 | 9,26 | 9,95 |
 
-(Alle 16 Zeilen mit den Gruppengrößen 2, 3, 4 und 6 stehen in der App.) Die erwartete Blockerzahl trifft die Zählung an den wahren Nummern im Mittel auf **höchstens 0,06 Blocker** genau; die Formel ist im Test gegen die **vollständige Aufzählung** aller Zuordnungen innerhalb der Gruppen nachgerechnet (7 Fälle, je 12 Buchten).
+(Alle 16 Zeilen mit den Gruppengrößen 2, 3, 4 und 6 stehen in der App.) Im Mittel über 200 Buchten trifft die erwartete Blockerzahl die Zählung an den wahren Nummern auf **höchstens 0,06 Blocker** (je Bucht weicht sie im Mittel um etwa 0,7 ab); die Formel ist im Test gegen die **vollständige Aufzählung** aller Zuordnungen innerhalb der Gruppen nachgerechnet (7 Fälle, je 12 Buchten).
 
 **D: Das Optimum bei voller Information** (100 Buchten, Mittel)
 
@@ -96,11 +96,11 @@ Bei Gleichstand ist **Vorsicht** in allen acht Zeilen besser; der Unterschied is
 
 | Frage | Befund |
 |---|---|
-| **Was kostet das Nichtwissen?** | Wenig: 0,4 % (8 × 3, *g* = 2) bis 16 % (4 × 4, *g* = 6) mehr Hübe als bei voller Information; es wächst mit der Gruppengröße und schrumpft mit der Stapelzahl. |
+| **Was kostet das Nichtwissen?** | Wenig: 0,4 % (8 × 3, *g* = 2) bis 16 % (4 × 4, *g* = 6) mehr Hübe als bei voller Information; es wächst mit der Gruppengröße und schrumpft bei gleicher Lagenzahl mit der Stapelzahl. |
 | **Wie schnell sinkt der Wert der Vorschau?** | Schnell: In 4 × 4 mit *g* = 6 holt der erste enthüllte Abruf 0,73 Hübe (40 % der Lücke), der zweite 0,49, der dritte 0,37, der vierte 0,13; ab *k* = 6 bleibt nichts. In größeren Zellen trägt die Vorschau länger. |
-| **Reicht eine Vorschau bis zur Gruppengröße?** | In 4 × 3 und 4 × 4 ja (ab *k* = max(*g*, 4) höchstens 0,08 Hübe Lücke); in 5 × 4 mit *g* = 2 sind 90 % erst ab *k* = 6 geschlossen, bei 8 × 3 erst bei sehr großem *k*. Die Aussage gilt also für kleine Buchten, nicht allgemein. |
+| **Reicht eine Vorschau bis zur Gruppengröße?** | In 4 × 3 und 4 × 4 reicht *k* = *g* für *g* = 4 und 6 (mindestens 92 % der Lücke); bei *g* = 2 und 3 braucht es 3 bis 4 Abrufe, also mehr als *g*. Ab *k* = max(*g*, 4) fehlen höchstens 0,08 Hübe. In 5 × 4 mit *g* = 2 sind 90 % erst ab *k* = 6 geschlossen, bei 8 × 3 erst bei sehr großem *k*. Die Aussage gilt also für kleine Buchten, nicht allgemein. |
 | **Wie geht die Regel bei Gleichstand um?** | Vorsichtig: gleich = unsicher spart 12 bis 21 % Hübe ohne Vorschau, 1 bis 5 % mit zwei Abrufen Vorschau. |
-| **Trifft die Zählung unter Unsicherheit?** | Ja: die erwartete Blockerzahl liegt höchstens 0,06 neben der Zählung an den wahren Nummern. |
+| **Trifft die Zählung unter Unsicherheit?** | Im Mittel über 200 Buchten ja: die erwartete Blockerzahl liegt höchstens 0,06 neben der Zählung an den wahren Nummern (je Bucht weicht sie im Mittel um etwa 0,7 ab). |
 | **Und die Regel selbst?** | Auch bei voller Information liegt sie 1,9 % (4 × 3) und 7,7 % (4 × 4) über dem Optimum (Stück 1): Nichtwissen und Regelfehler addieren sich. |
 
 **Die Bucht von Hand:** (2, 7, 4), (6, 1, 9), (8, 5, 3), Höchsthöhe 5, Gruppen aus 3 Nummern. Die 9 liegt über der 1. Ohne Vorschau sehen Stapel 1 und Stapel 3 gleich aus (früheste mögliche Nummer 2,5, Gleichstand): Die Regel nimmt Stapel 1 und braucht **7** Hübe. Mit **einem** enthüllten Abruf wählt sie Stapel 3 und braucht **5**, das Optimum bei voller Information. Untergrenzen: LB1 3, LB2 4, erwartete Blocker 3.
@@ -121,7 +121,7 @@ Bei Gleichstand ist **Vorsicht** in allen acht Zeilen besser; der Unterschied is
 
 - **Kern:** Gruppen, Schlüssel (enthüllt, Mittelwert, kleinste und größte mögliche Nummer, kürzere letzte Gruppe), Zielwahl der Regel von Hand (Hand-Bucht: Gleichstand und Entscheidung mit Vorschau), Gleichstand-Variante an einer kleinen Bucht, erwartete Blocker von Hand, Untergrenzen, kein Platz.
 - **Orakel:** erwartete Blocker gegen die **vollständige Aufzählung** aller Zuordnungen innerhalb der Gruppen (7 Fälle, je 12 Buchten, bis 720 Zuordnungen je Bucht); die Regel mit Vorschau gegen eine **zweite Umsetzung** (explizite Mengen möglicher Nummern, eigene Zielwahl) in 525 Läufen (7 Einstellungen, 3 Zellen, je 25 Buchten); volle Information gleich der **Regel aus Stück 1** (`child_targets`) in 120 Buchten, bei *g* = 1 und bei Vorschau auf alle Container; die drei Schlüsselvarianten an 120 Buchten gleich; Untergrenzen ≤ Optimum ≤ Regel.
-- **Zahlen im README:** jede Zahl der Befunde in `tests/test_claims.py` (gespeicherte Bänder: nicht steigend in *k*, Lücke wächst mit *g* und schrumpft mit den Stapeln); drei Kurvenzellen, eine Gleichstandzeile und das Optimum werden frisch nachgerechnet (Zählungen).
+- **Zahlen im README:** jede Zahl der Befunde in `tests/test_claims.py` (gespeicherte Bänder: im Mittel nicht steigend in *k*, Lücke wächst mit *g* und schrumpft bei gleicher Lagenzahl mit den Stapeln); drei Kurvenzellen, eine Gleichstandzeile und das Optimum werden frisch nachgerechnet (Zählungen).
 - **Verdikte:** reine Funktionen, jede Schwelle einschließlich Gleichheitsfall (90 %, 50 %, Lücke 0,1, 5 % Ersparnis, 2 % Abweichung) und jede genannte Zahl an von Hand gesetzten Werten (`tests/test_verdicts.py`).
 - **Presets und Oberfläche:** AppTest-Rauchtest (jeder Button, jeder Regler an Minimum und Maximum), Inhalt (Kennzahlen, Tabellenzeilen, Hand-Bucht, Grenznutzen), Layout, Footer, Laufzeit-Importe, Abbildungen (Farben, gesperrte Achsen, Kategorieachse).
 
@@ -170,7 +170,7 @@ pip install -r requirements-dev.txt
 pytest tests/ -v
 ```
 
-104 Tests, rund eine Minute.
+104 Tests, rund 160 Sekunden (gemessen auf einem ausgelasteten Rechner).
 
 Gebaut mit Streamlit und Plotly.
 
